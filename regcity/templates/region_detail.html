@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ region.name }}
+{% endblock %}
+
+{% block content_title %}
+    Region:
+{% endblock %}
+
+{% block content %}
+    <h2><p>{{ region.name }}</p></h2><br/><br/>
+<h3>Города регионального центра: </h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Sities</th>
+    </tr>
+  {% for c in city %}
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{ c.id }}</th>
+      <td>{{ c }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<br/><br/>
+
+    <a href="{{ url_for('region_update', slug=region.slug) }}" class="btn btn-success">Редактировать</a>
+    <a href="{{ url_for('region_delete', slug=region.slug) }}" class="btn btn-danger">Удалить</a>
+
+{% endblock %}

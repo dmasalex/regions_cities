@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ city.name }}
+{% endblock %}
+
+{% block content_title %}
+    City:
+{% endblock %}
+
+{% block content %}
+    <h2><p>{{ city.name }}</p></h2>
+
+<h3>Региональный центр: {{ region }}</h3><br/><br/>
+    <a href="{{ url_for('city_update', slug=city.slug) }}" class="btn btn-success">Редактировать</a>
+    <a href="{{ url_for('city_delete', slug=city.slug) }}" class="btn btn-danger">Удалить</a>
+{% endblock %}

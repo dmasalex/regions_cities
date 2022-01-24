@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Regions
+{% endblock %}
+
+{% block content_title %}
+    Regions:
+{% endblock %}
+
+{% block content %}
+    {% for region in regions %}
+        <p>
+            <a href="{{ url_for('region_detail', slug=region.slug) }}">{{ region.name }}</a>
+        </p>
+    {% endfor %}
+{% endblock %}
